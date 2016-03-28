@@ -11,7 +11,7 @@ $obs_dbname = "observium";
 
 $lib_servername = "<libre_server>";
 $lib_username = "<libre_user>";
-$lib_password = "libre_password";
+$lib_password = "<libre_password>";
 $lib_dbname = "librenms";
 
 //
