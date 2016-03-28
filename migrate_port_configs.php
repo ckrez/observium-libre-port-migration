@@ -27,7 +27,7 @@ if ($obs_conn->connect_error) { die(" Observium Connection failed: " . $obs_conn
 if ($lib_conn->connect_error) { die(" LibreNMS Connection failed: " . $lib_conn->connect_error); }
 
 // Read in devices file
-$devices = file($device_file , FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) or die("Unable to connect to open file $device_file \n");
+$devices = file($device_file , FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) or die("Unable to open file $device_file \n");
 
 // Loop through devices in device file
 foreach( $devices as $device_name ) {
@@ -84,7 +84,7 @@ foreach( $devices as $device_name ) {
 			echo "Updating 'Deleted' to " . $obs_port_results[$obs_keys[$i]][4] . " for port-ID " . $lib_port_results[$lib_keys[$i]][0] . " for device $device_name\n";
 			$lib_sql = "UPDATE ports SET ports.deleted = " . $obs_port_results[$obs_keys[$i]][4] . " WHERE ports.device_id = $lib_dev_id AND ports.port_id = " . $lib_port_results[$lib_keys[$i]][0];
 			if ( !($lib_conn->query($lib_sql) === TRUE) ) { echo "Error updating deleted record: " . $lib_conn->error; }
-			}	
+		}	
 	}
 
 }
