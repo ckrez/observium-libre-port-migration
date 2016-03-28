@@ -1,0 +1,3 @@
+device1.example.com
+device2.example.com
+device3.example.com
